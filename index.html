@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Colorred Support</title><meta name="description" content="Colorred support and FAQ.">
+<meta name="color-scheme" content="dark light">
+<style>
+:root{--bg:#07080d;--card:rgba(255,255,255,.045);--line:rgba(255,255,255,.09);--text:#eef0f6;--muted:#a3a8b8;--accent:#ff4f6d;--accent2:#7c5cff;--accent3:#2fd5c5}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--bg:#f6f6fa;--card:#fff;--line:rgba(10,12,30,.09);--text:#141626;--muted:#5b6074;--accent3:#0b7d74}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.glow{position:fixed;inset:-30vh -20vw auto;height:70vh;z-index:0;pointer-events:none;filter:blur(70px);opacity:.55;
+ background:radial-gradient(40% 50% at 25% 40%,var(--accent),transparent 70%),radial-gradient(35% 45% at 70% 30%,var(--accent2),transparent 70%),radial-gradient(30% 40% at 50% 70%,var(--accent3),transparent 70%)}
+@media (prefers-color-scheme: light){.glow{opacity:.22}}
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:28px 20px 80px}
+nav{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-bottom:48px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text);text-decoration:none;margin-right:auto}
+.logo{width:30px;height:30px;border-radius:8px;background:conic-gradient(from 200deg,#ff4f6d,#ffb84f,#2fd5c5,#7c5cff,#ff4f6d)}
+nav a.l{color:var(--muted);text-decoration:none;font-size:15px}
+nav a.l.on,nav a.l:hover{color:var(--text)}
+h1{font-size:clamp(32px,6vw,46px);line-height:1.1;letter-spacing:-.02em;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 36px}
+h2{font-size:20px;margin:40px 0 10px;letter-spacing:-.01em}
+p,li{color:var(--text)}
+.muted{color:var(--muted)}
+ul{padding-left:20px}
+li{margin:6px 0}
+a{color:var(--accent3)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin:18px 0;backdrop-filter:blur(10px)}
+.tldr li{margin:4px 0}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:10px 0}
+td,th{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+.hero{padding:10px 0 20px}
+.btn{display:inline-block;padding:12px 18px;border-radius:12px;background:var(--text);color:var(--bg);text-decoration:none;font-weight:600;margin:6px 8px 6px 0}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+footer{margin-top:64px;color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:600}
+@media (max-width:600px){table,tbody,tr,td{display:block;width:100%}tr:first-child{display:none}tr{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 14px;margin:12px 0}td{border:0;padding:6px 0}td:first-child{font-weight:700}}
+</style></head>
+<body><div class="glow"></div><div class="wrap">
+<nav><a class="brand" href="index.html"><span class="logo"></span>Colorred</a><a class="l on" href="index.html">Support</a><a class="l" href="privacy.html">Privacy</a><a class="l" href="terms.html">Terms</a></nav>
+
+<div class="hero">
+<h1>Colorred</h1>
+<p class="sub">Living colors for your iPhone and Apple Watch. Gradients that flow, sand that falls with gravity, snow you can blow away.</p>
+<a class="btn" href="mailto:zimm.093@gmail.com?subject=Colorred%20support">Email support</a>
+<a class="btn ghost" href="privacy.html">Privacy</a>
+</div>
+
+<h2>Frequently asked</h2>
+<details><summary>How do I install Colorred on Apple Watch?</summary>
+<p>Install Colorred on your iPhone. Open the Watch app &gt; My Watch &gt; scroll to Available Apps &gt; Colorred &gt; Install. Updates arrive on the watch automatically.</p></details>
+<details><summary>The scene disappears and the watch face comes back.</summary>
+<p>Inside the app tap the scene, then <strong>?</strong> for a short guide. In short: on the watch open Settings &gt; Gestures and turn off Wrist Flick; Settings &gt; Display &amp; Brightness &gt; Wake on Wrist Raise on; Settings &gt; General &gt; Return to Clock &gt; Colorred &gt; After 1 hour; Settings &gt; Display &amp; Brightness &gt; Always On &gt; Choose Apps &gt; Colorred on.</p></details>
+<details><summary>The screen goes grey or dim.</summary>
+<p>That is Always On mode: watchOS dims apps when you lower your wrist. Raise your wrist or tap the screen. If raising the wrist does not wake it, turn on Settings &gt; Display &amp; Brightness &gt; Wake on Wrist Raise. While dimmed, watchOS lets apps draw about one frame per second, so the scene moves in slow motion until the screen wakes.</p></details>
+<details><summary>Blowing on Snow does nothing.</summary>
+<p>Allow microphone access: on iPhone open Settings &gt; Privacy &amp; Security &gt; Microphone &gt; Colorred. Blow from below the watch, like a short exhale. Audio never leaves the device.</p></details>
+<details><summary>Is Colorred Pro a subscription?</summary>
+<p>No. Colorred Pro is a one-time purchase. Pay once, keep it forever on every device with the same Apple ID. Nothing renews and there is nothing to cancel.</p></details>
+<details><summary>I bought Colorred Pro on another device.</summary>
+<p>Open the paywall and tap <strong>Restore Purchases</strong>, signed in with the same Apple ID.</p></details>
+<details><summary>Does Colorred collect my data?</summary>
+<p>No. See the <a href="privacy.html">Privacy Policy</a>.</p></details>
+
+<h2>Still stuck?</h2>
+<p>Write to <a href="mailto:zimm.093@gmail.com">zimm.093@gmail.com</a> with your device model and watchOS / iOS version. We answer within 2 business days.</p>
+
+<footer>© 2026 Vladyslav Sydorenko. Colorred for iPhone and Apple Watch. Contact: <a href="mailto:zimm.093@gmail.com">zimm.093@gmail.com</a></footer>
+</div></body></html>
