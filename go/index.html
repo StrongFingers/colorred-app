@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Colorred: free on the App Store</title>
+<meta name="description" content="Blow on your phone and the snow flies away. 22 living scenes for iPhone, iPad and Apple Watch. Free.">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<meta property="og:title" content="Colorred for iPhone, iPad and Apple Watch">
+<meta property="og:description" content="Blow on your phone and the snow flies away. Free, no ads.">
+<meta property="og:image" content="https://strongfingers.github.io/colorred-app/icon.png">
+<link rel="icon" href="../icon.png">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#07080d;color:#eef0f6;font:17px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+body{display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;
+ background:radial-gradient(60% 45% at 30% 15%,rgba(255,79,109,.35),transparent 70%),radial-gradient(60% 45% at 80% 85%,rgba(124,92,255,.35),transparent 70%),#07080d}
+img{width:112px;height:112px;border-radius:26px;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+h1{font-size:40px;letter-spacing:-.02em;margin:18px 0 4px}
+p{color:#a3a8b8;margin:6px 0}
+.btn{display:block;margin:28px auto 12px;padding:16px 28px;max-width:320px;border-radius:16px;background:#eef0f6;color:#07080d;font-weight:700;text-decoration:none}
+small,small a{color:#a3a8b8;font-size:13px}
+</style></head>
+<body><main>
+<img src="../icon.png" alt="Colorred app icon" width="112" height="112">
+<h1>Colorred</h1>
+<p>Blow on your phone and the snow flies away.</p>
+<p>iPhone · iPad · Apple Watch</p>
+<a class="btn" id="get" href="https://apps.apple.com/app/id1497619109">Get it free on the App Store</a>
+<small id="other" hidden>Open this page on an iPhone or iPad to install.<br></small>
+<small><a href="../privacy.html">Privacy</a></small>
+</main>
+<script>
+// Link tracker: ?s=<source> -> one anonymous event -> App Store. No cookies, no storage, no visitor ID.
+(function () {
+  var PT = "";            // provider token from App Store Connect (a number); empty = no install attribution
+  var APP_ID = "EA964BE4-CA20-4FA9-B938-8D3D7C934688";   // TelemetryDeck app
+  var URL_TD = "https://nom.telemetrydeck.com/v2/namespace/com.vladyslavsydorenko/";
+  var q = new URLSearchParams(location.search);
+  var s = (q.get("s") || "").toLowerCase();
+  if (!/^[a-z0-9-]{1,30}$/.test(s)) s = "direct";
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var device = ios ? "ios" : /Android/.test(ua) ? "android" : "desktop";
+  var inApp = /Instagram/.test(ua) ? "instagram" : /Barcelona/.test(ua) ? "threads" :
+              /FBAN|FBAV/.test(ua) ? "facebook" : /TikTok|musical_ly|BytedanceWebview/.test(ua) ? "tiktok" : "browser";
+  var test = q.get("test") === "1" || !/\.github\.io$/.test(location.hostname);
+  var store = "https://apps.apple.com/app/id1497619109?" + (PT ? "pt=" + PT + "&" : "") + "ct=" + s + "&mt=8";
+  var btn = document.getElementById("get");
+  btn.href = store;
+  if (device !== "ios") document.getElementById("other").hidden = false;
+
+  function send(type) {
+    var e = { appID: APP_ID, clientUser: "web-link", sessionID: String(Math.random()).slice(2), type: type,
+              receivedAt: new Date().toISOString(),
+              payload: { "Colorred.source": s, "Colorred.device": device, "Colorred.inApp": inApp } };
+    if (test) e.isTestMode = true;
+    try {
+      return fetch(URL_TD, { method: "POST", keepalive: true, headers: { "Content-Type": "application/json" },
+                             body: JSON.stringify([e]) }).catch(function () {});
+    } catch (err) { return Promise.resolve(); }
+  }
+  btn.addEventListener("click", function () { send("link_store_tap"); });
+  var sent = send("link_click");
+  if (device === "ios" && q.get("stay") !== "1") {
+    var gone = false, go = function () { if (!gone) { gone = true; location.replace(store); } };
+    sent.then(go); setTimeout(go, 700);   // never wait for statistics longer than 0.7 s
+  }
+})();
+</script>
+</body></html>
